@@ -24,12 +24,13 @@
             background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            width: 80%;
-            max-width: 800px;
-            margin-bottom: 40px;
+            padding: 20px; /* Reduced padding for smaller screens */
+            width: 90%; /* Take up more width on smaller screens */
+            max-width: 600px; /* Reduced max-width */
+            margin-bottom: 30px; /* Reduced margin */
             transition: all 0.3s ease; /* Smooth transitions */
             transform: translateY(0);
+            box-sizing: border-box; /* Include padding in the width */
         }
 
         .container:hover {
@@ -39,9 +40,10 @@
 
         h1, h2 {
             color: #4a148c; /* Darker purple */
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             font-weight: 700; /* Bold font */
+            font-size: 1.8em; /* Slightly reduced font size for responsiveness */
         }
 
         a {
@@ -57,9 +59,9 @@
 
         .bot-item {
             border: 1px solid #ddd;
-            padding: 20px;
+            padding: 15px; /* Reduced padding */
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin */
             background-color: #f9f9f9;
             transition: transform 0.2s ease;
         }
@@ -70,14 +72,16 @@
 
         .bot-item h3 {
             color: #7b1fa2;
-            margin-bottom: 10px;
+            margin-bottom: 8px; /* Reduced margin */
+            font-size: 1.2em; /* Reduced font size */
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px; /* Reduced margin */
             color: #eee;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            padding: 20px; /* Add some padding to the footer */
         }
 
         /* Keyframes for subtle animations */
@@ -101,9 +105,6 @@
         }
 
         /* Add Font Awesome Icons */
-        .bot-item a { /* убрал ::before для корректной работы с иконкой */
-            /* Ничего не меняем, просто поправляем код */
-        }
 
         .container h1::before {
             content: '\f007'; /* User icon */
@@ -132,6 +133,27 @@
             color: #7b1fa2;
         }
 
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+                width: 95%;
+                max-width: none; /* Remove max-width restriction */
+            }
+
+            h1, h2 {
+                font-size: 1.5em;
+            }
+
+            .bot-item {
+                padding: 10px;
+            }
+
+            .bot-item h3 {
+                font-size: 1.1em;
+            }
+        }
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -155,13 +177,13 @@
             <p>Привет👋! Этот ТГ-бот покажет тебе английские видео!</p>
             <a href="https://t.me//EnglishForKidsVideoBot"> Запустить</a>
         </div>
-        
+
         <div class="bot-item">
-            <h3>Бот 2: region-code-bot</h3>
+            <h3>Бот 2: english-for-kids | video</h3>
             <p>Привет👋! Этот ТГ-бот поможет вам определить регион по коду на номере машины!</p>
             <a href="https://t.me/RegionCodeBot"> Запустить</a>
         </div>
-        
+
     </div>
 
     <footer>
