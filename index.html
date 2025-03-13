@@ -3,91 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой Сайт</title>
+    <title>IGstarOffic - Мои боты</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* General Styles */
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(to bottom, #e0eafc, #673ab7); /* Gradient background */
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #3498db, #2ecc71); /* Modern, vibrant gradient */
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.7;
+            color: #fff; /* Light text for contrast */
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden;
+            position: relative; /* For background patterns */
+            padding-top: 40px; /* Added top padding to the body */
         }
 
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.4'%3E%3Cpath d='M42 22L21 0L0 22L21 44L42 22Z' fill='white'/%3E%3C/g%3E%3C/svg%3E"); /* Geometric pattern */
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+
+        /* Container Styles */
         .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            padding: 20px; /* Reduced padding for smaller screens */
-            width: 90%; /* Take up more width on smaller screens */
-            max-width: 600px; /* Reduced max-width */
-            margin-bottom: 30px; /* Reduced margin */
-            transition: all 0.3s ease; /* Smooth transitions */
-            transform: translateY(0);
-            box-sizing: border-box; /* Include padding in the width */
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            margin-bottom: 40px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(12px); /* Glass effect */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-sizing: border-box;
         }
 
         .container:hover {
-            transform: translateY(-5px); /* Slight lift on hover */
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
         h1, h2 {
-            color: #4a148c; /* Darker purple */
-            margin-bottom: 15px; /* Reduced margin */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            font-weight: 700; /* Bold font */
-            font-size: 1.8em; /* Slightly reduced font size for responsiveness */
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8em;
+        }
+
+        h2 {
+            font-size: 2.2em;
+        }
+
+        p {
+            font-size: 1.15em;
+            color: #eee;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
         }
 
         a {
-            color: #7b1fa2; /* Lighter purple */
+            color: #fff;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            font-weight: 500;
         }
 
         a:hover {
             text-decoration: underline;
-            color: #ba68c8; /* Even lighter purple */
+            color: #b3e5fc; /* Lighter blue */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
+        /* Bot Item Styles */
         .bot-item {
-            border: 1px solid #ddd;
-            padding: 15px; /* Reduced padding */
-            border-radius: 8px;
-            margin-bottom: 15px; /* Reduced margin */
-            background-color: #f9f9f9;
-            transition: transform 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center; /* Vertically align content */
         }
 
         .bot-item:hover {
-            transform: scale(1.02); /* Slight zoom on hover */
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .bot-item .bot-info {
+            flex-grow: 1;
         }
 
         .bot-item h3 {
-            color: #7b1fa2;
-            margin-bottom: 8px; /* Reduced margin */
-            font-size: 1.2em; /* Reduced font size */
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
         }
 
+        .bot-item p {
+            margin-bottom: 18px;
+        }
+
+        /* Button Style */
+        .bot-item a {
+            display: inline-block;
+            background-color: #2962FF;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            margin-left: 20px; /* Space between text and button */
+        }
+
+        .bot-item a:hover {
+            background-color: #0D47A1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+        }
+
+        /* Footer Styles */
         footer {
             text-align: center;
-            margin-top: 30px; /* Reduced margin */
-            color: #eee;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            padding: 20px; /* Add some padding to the footer */
+            margin-top: 40px;
+            color: #ddd;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Keyframes for subtle animations */
+        /* Icon Styles */
+        .container h1::before,
+        .container h2::before {
+            font-family: FontAwesome;
+            margin-right: 12px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .container h1::before {
+            content: '\f007'; /* User icon */
+        }
+
+        .container h2::before { /* Remove the ::before from here */
+            /* content: '\f12e';  Bot icon */ /* No longer needed here */
+        }
+
+        .bot-item h3 {
+            /* content: '\f12e';  Bot icon */
+        }
+
+        .bot-item a::before {
+            font-family: FontAwesome;  /* Добавлено */
+            content: '\f1d8'; /* Telegram icon */
+            margin-right: 8px;
+        }
+
+        /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /*body {
+            animation: fadeIn 1s ease-out;
+        }*/
+
+        /* Changed animation for "Обо мне" container */
+        .container:nth-child(2) { /* Selects the second container (Обо мне) */
+            animation: fadeIn 1s ease-out;
         }
 
         @keyframes slideInLeft {
@@ -95,99 +203,87 @@
             to { transform: translateX(0); }
         }
 
-        /* Apply animations */
-        body {
-            animation: fadeIn 1s ease-out;
+        /* Default Animation for other containers, if needed */
+        .container:not(:nth-child(2)) {
+            animation: fadeIn 1s ease-out;  /* Fallback to FadeIn for other containers */
         }
 
-        .container:nth-child(odd) {
-            animation: slideInLeft 1s ease-out;
-        }
 
-        /* Add Font Awesome Icons */
-
-        .container h1::before {
-            content: '\f007'; /* User icon */
-            font-family: FontAwesome;
-            margin-right: 10px;
-            color: #4a148c;
-        }
-
-        .container h2::before {
-            content: '\f12e'; /* Bot icon */
-            font-family: FontAwesome;
-            margin-right: 10px;
-            color: #4a148c;
-        }
-        .bot-item h3::before {
-            content: '\f12e'; /* Bot icon */
-            font-family: FontAwesome;
-            margin-right: 5px;
-            color: #7b1fa2;
-        }
-
-        .bot-item a::before {
-            content: '\f1d8'; /* Telegram icon */
-            font-family: FontAwesome;
-            margin-right: 5px;
-            color: #7b1fa2;
-        }
-
-        /* Media query for smaller screens */
-        @media (max-width: 600px) {
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 25px;
                 width: 95%;
-                max-width: none; /* Remove max-width restriction */
             }
 
-            h1, h2 {
-                font-size: 1.5em;
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.9em;
+            }
+
+            p {
+                font-size: 1.1em;
             }
 
             .bot-item {
-                padding: 10px;
+                padding: 20px;
+                flex-direction: column; /* Stack elements vertically */
+                align-items: flex-start; /* Align to the start */
+            }
+
+            .bot-item .bot-info {
+                margin-bottom: 15px;
             }
 
             .bot-item h3 {
-                font-size: 1.1em;
+                font-size: 1.3em;
+            }
+
+            .bot-item a {
+                padding: 12px 24px;
+                margin-left: 0; /* Reset margin */
             }
         }
-
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
-        <h1>Всем привет!</h1>
-        <p>Здесь информация обо мне и моих ботах!</p>
+        <h1>Приветствую! 👋</h1>
+        <p>Добро пожаловать на мою страницу. Здесь вы найдете информацию обо мне и моих полезных ботах! 🚀</p>
     </div>
 
     <div class="container">
-        <h2>Обо мне</h2>
-        <p>Я - разработчик ботов. Мне нравится создавать полезные и интересные инструменты для людей. Моя цель - автоматизировать рутинные задачи, упростить доступ к информации и сделать повседневную жизнь более эффективной. Я всегда ищу новые способы улучшить функциональность и удобство использования моих ботов, чтобы они приносили максимальную пользу.</p>
+        <h2>Обо мне 🧑‍💻</h2>
+        <p>Я - IGstarOffic, увлеченный разработчик ботов. Моя страсть - создание инструментов, которые делают жизнь людей проще и эффективнее.  Я постоянно учусь и экспериментирую, чтобы мои боты были максимально полезными и удобными в использовании. Моя цель -  автоматизировать рутину и дать вам больше времени для важных вещей. ✨</p>
     </div>
 
     <div class="container">
-        <h2>Мои боты</h2>
+        <h2>Мои боты 🤖</h2>
 
         <div class="bot-item">
-            <h3>Бот 1: english-for-kids | video</h3>
-            <p>Привет👋! Этот ТГ-бот покажет тебе английские видео!</p>
-            <a href="https://t.me/EnglishForKidsVideoBot"> Запустить</a>
+            <div class="bot-info">
+                <h3>⚙️ english-for-kids | video</h3>
+                <p>Привет 👋! Этот Telegram-бот поможет вашему ребенку учить английский язык в игровой форме, показывая обучающие видео! 📚</p>
+            </div>
+            <a href="https://t.me/EnglishForKidsVideoBot" target="_blank">Запустить</a>
         </div>
 
         <div class="bot-item">
-            <h3>Бот 2: RegionCodeBot</h3>
-            <p>Привет👋! Этот ТГ-бот поможет вам определить регион по коду на номере машины!</p>
-            <a href="https://t.me/RegionCodeBot"> Запустить</a>
+            <div class="bot-info">
+                <h3>⚙️ RegionCodeBot</h3>
+                <p>Привет 👋!  С помощью этого Telegram-бота вы сможете легко определить регион по коду на автомобильном номере! 🚗</p>
+            </div>
+            <a href="https://t.me/RegionCodeBot" target="_blank">Запустить</a>
         </div>
 
     </div>
 
     <footer>
-        <p>©2025 IGstarOffic</p>
+        <p>© 2025 IGstarOffic. Все права защищены. 🔒</p>
     </footer>
 
 </body>
